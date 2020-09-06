@@ -1,12 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/rendering.dart';
 import 'package:weather_app/WeatherModel.dart';
 import 'package:weather_app/WeatherRepo.dart';
 
 class WeatherEvent extends Equatable {
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
