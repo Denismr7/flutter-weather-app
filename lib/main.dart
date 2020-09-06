@@ -56,6 +56,11 @@ class SearchPage extends StatelessWidget {
               SizedBox(height: 24),
               TextFormField(
                 decoration: InputDecoration(
+                  hintText: 'City (i.e Madrid)',
+                  hintStyle: TextStyle(
+                    fontSize: 15,
+                    color: Color.fromARGB(180, 150, 150, 150),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                   prefixIcon: Icon(
