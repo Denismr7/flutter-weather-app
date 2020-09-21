@@ -33,6 +33,8 @@ class WeatherIsLoaded extends WeatherState {
 
   WeatherIsLoaded(this._weather);
 
+  WeatherModel get getWeather => _weather;
+
   @override
   List<Object> get props => [_weather];
 }
@@ -41,6 +43,7 @@ class WeatherIsNotLoaded extends WeatherState {}
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherRepo weatherRepo;
+
   WeatherBloc(WeatherState initialState, this.weatherRepo)
       : super(initialState);
 
@@ -57,7 +60,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         yield WeatherIsNotLoaded();
       }
     } else if (event is ResetWeather) {
-      yield WeatherIsNotLoaded();
+      yield WeatherIsNotSearched();
     }
   }
 }

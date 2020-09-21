@@ -4,16 +4,18 @@ class WeatherModel {
   final humidity;
   final tempMax;
   final tempMin;
+  final name;
 
-  double get getTemp => temp;
-  double get getMaxTemp => tempMax;
-  double get getMinTemp => tempMin;
+  dynamic get getTemp => temp;
+  dynamic get getMaxTemp => tempMax;
+  dynamic get getMinTemp => tempMin;
+  get getCity => name;
 
-  WeatherModel(
-      this.temp, this.pressure, this.humidity, this.tempMax, this.tempMin);
+  WeatherModel(this.temp, this.pressure, this.humidity, this.tempMax,
+      this.tempMin, this.name);
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     return WeatherModel(json["temp"], json["pressure"], json["humidity"],
-        json["temp_max"], json["temp_min"]);
+        json["temp_max"], json["temp_min"], json["name"]);
   }
 }

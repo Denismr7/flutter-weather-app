@@ -17,8 +17,11 @@ class WeatherRepo {
 
   WeatherModel parseJSON(final response) {
     final jsonDecoded = json.decode(response);
+    final result = {'name': jsonDecoded["name"]};
     final jsonWeather = jsonDecoded["main"];
+    result.addAll(jsonWeather);
+    print(WeatherModel.fromJson(result));
 
-    return WeatherModel.fromJson(jsonWeather);
+    return WeatherModel.fromJson(result);
   }
 }
