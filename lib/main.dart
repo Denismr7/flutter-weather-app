@@ -160,12 +160,12 @@ class ShowWeather extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            toBoolean(city) ? city : weather.getCity,
+            toBoolean(city) ? city.toString().toUpperCase() : weather.getCity,
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           SizedBox(
-            height: 10,
+            height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -176,11 +176,29 @@ class ShowWeather extends StatelessWidget {
                     "MIN",
                     style: TextStyle(
                       fontSize: 25,
-                      color: Color.fromARGB(255, 246, 203, 67),
+                      color: Colors.white,
                     ),
                   ),
                   Text(
-                    weather.getMinTemp.round().toString(),
+                    weather.getMinTemp.round().toString() + "ºC",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 246, 203, 67),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    "CURRENT",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    weather.getTemp.round().toString() + "ºC",
                     style: TextStyle(
                       fontSize: 25,
                       color: Color.fromARGB(255, 246, 203, 67),
@@ -194,11 +212,11 @@ class ShowWeather extends StatelessWidget {
                     "MAX",
                     style: TextStyle(
                       fontSize: 25,
-                      color: Color.fromARGB(255, 246, 203, 67),
+                      color: Colors.white,
                     ),
                   ),
                   Text(
-                    weather.getMaxTemp.round().toString(),
+                    weather.getMaxTemp.round().toString() + "ºC",
                     style: TextStyle(
                       fontSize: 25,
                       color: Color.fromARGB(255, 246, 203, 67),
@@ -224,11 +242,23 @@ class ShowWeather extends StatelessWidget {
               splashColor: Color.fromARGB(255, 250, 176, 60),
               disabledColor: Colors.grey,
               textColor: Colors.white,
-              child: Text(
-                'New search',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.undo,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'New search',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
           )
